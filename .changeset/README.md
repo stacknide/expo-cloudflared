@@ -6,3 +6,12 @@ find the full documentation for it [in our repository](https://github.com/change
 
 We have a quick list of common questions to get you started engaging with this project in
 [our documentation](https://github.com/changesets/changesets/blob/main/docs/common-questions.md)
+
+## ⚠️ Versioning rule for expo-cloudflared
+
+Expo CLI's NgrokResolver requires the package installed at
+`node_modules/@expo/ngrok` to have a version satisfying `^4.1.0`.
+**Never select `major` when running `yarn changeset`** — a 5.0.0 release would
+silently break `expo start --tunnel` for every user. Breaking changes ship as
+4.x minor bumps. This is enforced by `test/api.test.mjs` (pre-push) and
+`package/scripts/assert-ngrok-range.mjs` (prepublishOnly).

@@ -43,7 +43,8 @@
     "lint:tsc": "tsc --noEmit",
     "lint:biome": "biome check ./src",
     "lint": "yarn lint:tsc && yarn lint:biome",
-    "format": "biome check --write ./src"
+    "format": "biome check --write ./src",
+    "prepublishOnly": "node ./scripts/assert-ngrok-range.mjs && yarn build"
   },
   "author": "Ashutosh Khanduala <https://github.com/ashuvssut>",
   "license": "MIT",
