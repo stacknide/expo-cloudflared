@@ -21,7 +21,8 @@
   "license": "MIT",
   "workspaces": [
     "package",
-    "test"
+    "test",
+    "test/demo-app"
   ],
   "packageManager": "yarn@4.12.0"
 }
