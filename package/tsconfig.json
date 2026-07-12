@@ -32,9 +32,9 @@
     "verbatimModuleSyntax": true,
     "isolatedDeclarations": true,
 
-    "baseUrl": ".",
+    "types": ["node"],
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["./src/*"]
     }
   },
   "include": ["src/**/*"],

@@ -18,7 +18,7 @@
     "concurrently": "^9.2.1",
     "lefthook": "^2.1.1",
     "tsup": "^8.5.1",
-    "typescript": "^5.9.3"
+    "typescript": "~6.0.3"
   },
   "author": "Ashutosh Khanduala <https://github.com/ashuvssut>",
   "license": "MIT",

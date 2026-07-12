@@ -5,7 +5,10 @@ const isDev = process.env.NODE_ENV === 'development'
 export default defineConfig([
 	{
 		clean: !isDev,
-		dts: true,
+		// tsup injects `baseUrl: "."` into the dts build, which TypeScript 6
+		// rejects as deprecated (TS5101) — silence it until tsup stops doing that.
+		// migrate to tsdown later: https://github.com/egoist/tsup/issues/1388#issuecomment-4545676598 when we decide to use TSgo v7
+		dts: { compilerOptions: { ignoreDeprecations: '6.0' } },
 		entry: {
 			index: 'src/index.ts',
 			internal: 'src/internal.ts',
