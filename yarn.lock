@@ -2799,17 +2799,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@stacknide/expo-cloudflared@workspace:*, @stacknide/expo-cloudflared@workspace:package":
-  version: 0.0.0-use.local
-  resolution: "@stacknide/expo-cloudflared@workspace:package"
-  dependencies:
-    "@biomejs/biome": "npm:2.4.4"
-    lefthook: "npm:^2.1.1"
-    tsup: "npm:^8.5.1"
-    typescript: "npm:^5.9.3"
-  languageName: unknown
-  linkType: soft
-
 "@testing-library/jest-dom@npm:^6.9.1":
   version: 6.9.1
   resolution: "@testing-library/jest-dom@npm:6.9.1"
@@ -2885,6 +2874,15 @@ __metadata:
   version: 12.20.55
   resolution: "@types/node@npm:12.20.55"
   checksum: 10c0/3b190bb0410047d489c49bbaab592d2e6630de6a50f00ba3d7d513d59401d279972a8f5a598b5bb8ddc1702f8a2f4ec57a65d93852f9c329639738e7053637d1
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^22.10.0":
+  version: 22.20.1
+  resolution: "@types/node@npm:22.20.1"
+  dependencies:
+    undici-types: "npm:~6.21.0"
+  checksum: 10c0/f2ba54d3d1fb92e1c57c78d32c3a17655b1e87363b707136f55c422b4838d4054901ce5d27f75bb0e5ecb7ebfee3804e0987822d22b473473008091857a09353
   languageName: node
   linkType: hard
 
@@ -4290,7 +4288,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "expo-cloudflared-test@workspace:test"
   dependencies:
-    "@stacknide/expo-cloudflared": "workspace:*"
+    expo-cloudflared: "workspace:*"
   languageName: unknown
   linkType: soft
 
@@ -4301,6 +4299,18 @@ __metadata:
     "@biomejs/biome": "npm:2.4.4"
     "@changesets/cli": "npm:^2.29.8"
     concurrently: "npm:^9.2.1"
+    lefthook: "npm:^2.1.1"
+    tsup: "npm:^8.5.1"
+    typescript: "npm:^5.9.3"
+  languageName: unknown
+  linkType: soft
+
+"expo-cloudflared@workspace:*, expo-cloudflared@workspace:package":
+  version: 0.0.0-use.local
+  resolution: "expo-cloudflared@workspace:package"
+  dependencies:
+    "@biomejs/biome": "npm:2.4.4"
+    "@types/node": "npm:^22.10.0"
     lefthook: "npm:^2.1.1"
     tsup: "npm:^8.5.1"
     typescript: "npm:^5.9.3"
@@ -8446,6 +8456,13 @@ __metadata:
   version: 1.6.4
   resolution: "ufo@npm:1.6.4"
   checksum: 10c0/3a2b29e7e3d772fbf6893d7d23bf442981457adb2fe122828abdbda89bedcb81aafd0dcc080e41b45f9a877db00cb42cbfee9639753a19d9b9bd39b5627039cf
+  languageName: node
+  linkType: hard
+
+"undici-types@npm:~6.21.0":
+  version: 6.21.0
+  resolution: "undici-types@npm:6.21.0"
+  checksum: 10c0/c01ed51829b10aa72fc3ce64b747f8e74ae9b60eafa19a7b46ef624403508a54c526ffab06a14a26b3120d055e1104d7abe7c9017e83ced038ea5cf52f8d5e04
   languageName: node
   linkType: hard
 

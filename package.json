@@ -5,9 +5,12 @@
   "scripts": {
     "publish": "yarn changeset publish",
     "bump": "yarn changeset",
-    "dev": "yarn workspace @stacknide/expo-cloudflared dev",
-    "build": "yarn workspace @stacknide/expo-cloudflared build",
-    "test": "yarn workspace expo-cloudflared-test test"
+    "dev": "yarn workspace expo-cloudflared dev",
+    "build": "yarn workspace expo-cloudflared build",
+    "test": "yarn build && yarn test:only",
+    "test:only": "yarn workspace expo-cloudflared-test test",
+    "demo:tunnel": "yarn build && yarn workspace demo-app start --tunnel",
+    "demo:tunnel:dev": "concurrently \"yarn dev\" \"yarn workspace demo-app start --tunnel\""
   },
   "devDependencies": {
     "@biomejs/biome": "2.4.4",

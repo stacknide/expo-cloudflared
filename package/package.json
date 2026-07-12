@@ -1,6 +1,6 @@
 {
-  "name": "@stacknide/expo-cloudflared",
-  "version": "0.0.0",
+  "name": "expo-cloudflared",
+  "version": "4.2.0",
   "description": "Cloudflare Tunnel for Expo — a drop-in replacement for `@expo/ngrok`. Powers `expo start --tunnel` using Cloudflare Tunnel instead of ngrok.",
   "source": "src/index.ts",
   "main": "dist/index.js",
@@ -44,9 +44,22 @@
     "url": "https://github.com/stacknide/expo-cloudflared/issues"
   },
   "homepage": "https://github.com/stacknide/expo-cloudflared/tree/main/package#readme",
-  "keywords": [],
+  "keywords": [
+    "expo",
+    "ngrok",
+    "cloudflared",
+    "cloudflare",
+    "tunnel",
+    "localhost",
+    "tunneling",
+    "expo-start-tunnel"
+  ],
+  "engines": {
+    "node": ">=18.17.0"
+  },
   "devDependencies": {
     "@biomejs/biome": "2.4.4",
+    "@types/node": "^22.10.0",
     "lefthook": "^2.1.1",
     "tsup": "^8.5.1",
     "typescript": "^5.9.3"

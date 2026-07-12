@@ -7,6 +7,6 @@
     "test": "node --test ./*.test.mjs"
   },
   "dependencies": {
-    "@stacknide/expo-cloudflared": "workspace:*"
+    "expo-cloudflared": "workspace:*"
   }
 }
