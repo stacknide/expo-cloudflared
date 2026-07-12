@@ -1,0 +1,27 @@
+{
+  "private": true,
+  "name": "expo-cloudflared-workspace",
+  "version": "1.0.0",
+  "scripts": {
+    "publish": "yarn changeset publish",
+    "bump": "yarn changeset",
+    "dev": "yarn workspace @stacknide/expo-cloudflared dev",
+    "build": "yarn workspace @stacknide/expo-cloudflared build",
+    "test": "yarn workspace expo-cloudflared-test test"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.4.4",
+    "@changesets/cli": "^2.29.8",
+    "concurrently": "^9.2.1",
+    "lefthook": "^2.1.1",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3"
+  },
+  "author": "Ashutosh Khanduala <https://github.com/ashuvssut>",
+  "license": "MIT",
+  "workspaces": [
+    "package",
+    "test"
+  ],
+  "packageManager": "yarn@4.12.0"
+}

@@ -1,0 +1,77 @@
+{
+  "[github-actions-workflow]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "[ignore]": {
+    "editor.defaultFormatter": "lumirelle.shell-format-rev"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[markdown]": {
+    "editor.formatOnSave": true
+  },
+  "[properties]": {
+    "editor.defaultFormatter": "lumirelle.shell-format-rev"
+  },
+  "[svg]": {
+    "editor.defaultFormatter": "redhat.vscode-xml"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.biome": "explicit",
+    "source.fixAll.eslint": "never",
+    "source.fixAll.markdownlint": "explicit",
+    "source.organizeImports.biome": "explicit"
+  },
+  "editor.defaultFormatter": "biomejs.biome",
+
+  "editor.formatOnSave": true,
+
+  "eslint.enable": true,
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+
+  "markdownlint.config": {
+    // Match Biome's indentStyle: "tab"
+    "MD010": false,
+
+    // Lightweight structure checks only
+    "MD022": true,
+    "MD031": true,
+    "MD032": true,
+
+    // Avoid opinionated markdown rules (Biome has no equivalent)
+    "MD033": false,
+    "MD041": false,
+
+    // Match Biome's line endings / EOF
+    "MD047": true,
+
+    // Disable MD059/descriptive-link-text: Link text should be descriptive
+    "MD059": false
+  },
+
+  "search.exclude": {
+    "**/.dump": true,
+    "**/.dump/**": true
+  },
+
+  "typescript.tsdk": "node_modules/typescript/lib"
+}

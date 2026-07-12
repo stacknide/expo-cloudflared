@@ -1,0 +1,12 @@
+{
+  "name": "expo-cloudflared-test",
+  "private": true,
+  "type": "module",
+  "version": "0.0.0",
+  "scripts": {
+    "test": "node --test ./*.test.mjs"
+  },
+  "dependencies": {
+    "@stacknide/expo-cloudflared": "workspace:*"
+  }
+}

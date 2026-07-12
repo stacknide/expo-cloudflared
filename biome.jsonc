@@ -1,0 +1,117 @@
+{
+	"$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+	"assist": {
+		"actions": {
+			"source": {
+				"organizeImports": "on",
+				"useSortedAttributes": "on",
+				"useSortedKeys": "on",
+				"useSortedProperties": "on"
+			}
+		},
+		"enabled": true
+	},
+	"files": {
+		"ignoreUnknown": false
+	},
+	"formatter": {
+		"attributePosition": "auto",
+		"bracketSameLine": false,
+		"bracketSpacing": true,
+		"enabled": true,
+		"expand": "auto",
+		"formatWithErrors": false,
+		"includes": [
+			"**/*.js",
+			"**/*.mjs",
+			"**/*.jsx",
+			"**/*.ts",
+			"**/*.tsx",
+			"**/*.json",
+			"**/*.jsonc",
+			"**/*.css",
+			"**/*.code-workspace",
+			"!**/dist/**",
+			"!**/.dump/**"
+		],
+		"indentStyle": "tab",
+		"indentWidth": 2,
+		"lineEnding": "lf",
+		"lineWidth": 100,
+		"useEditorconfig": true
+	},
+	"html": {
+		"formatter": {
+			"selfCloseVoidElements": "always"
+		}
+	},
+	"javascript": {
+		"formatter": {
+			"arrowParentheses": "always",
+			"jsxQuoteStyle": "double",
+			"quoteProperties": "asNeeded",
+			"quoteStyle": "single",
+			"semicolons": "asNeeded",
+			"trailingCommas": "es5"
+		}
+	},
+	"json": {
+		"parser": {
+			"allowComments": true
+		}
+	},
+	"linter": {
+		"enabled": true,
+		"includes": ["**", "!**/dist/*", "!**/.dump/*"],
+		"rules": {
+			"complexity": {
+				"noUselessFragments": {
+					"fix": "safe",
+					"level": "error"
+				}
+			},
+			"correctness": {
+				"noUnusedImports": {
+					"fix": "safe",
+					"level": "error"
+				},
+				"noUnusedVariables": {
+					"fix": "none",
+					"level": "error"
+				}
+			},
+			"recommended": true
+		}
+	},
+	"overrides": [
+		{
+			"assist": {
+				"actions": {
+					"source": {
+						"useSortedKeys": "off",
+						"useSortedProperties": "on"
+					}
+				}
+			},
+			"formatter": {
+				"expand": "always"
+			},
+			// Disable formatting for these files
+			"includes": [
+				"**/package.json" // Instead of letting Biome format package.json, run yarn install to format package.json
+			]
+		},
+		{
+			// Ignore code assist, parsing, formatting, etc
+			"css": {
+				"assist": { "enabled": false }
+			},
+			"includes": []
+		}
+	],
+	"vcs": {
+		"clientKind": "git",
+		"enabled": true,
+		"useIgnoreFile": true
+	}
+}

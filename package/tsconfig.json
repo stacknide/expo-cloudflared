@@ -1,0 +1,42 @@
+// biome-ignore-all assist/source/useSortedKeys: off
+{
+  "compilerOptions": {
+    "rootDir": "src",
+    "removeComments": false,
+    "allowSyntheticDefaultImports": true,
+
+    /* Base Options: */
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "target": "esnext",
+    "resolveJsonModule": true,
+    "forceConsistentCasingInFileNames": true /* Ensure that casing is correct in imports. */,
+
+    /* Strictness */
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "moduleResolution": "bundler",
+    "module": "esnext",
+    "noEmit": true,
+
+    /* Output Configuration: */
+    "outDir": "dist", // Specify the output directory for compiled files
+    "declaration": true, // Generate declaration files (.d.ts)
+
+    /* If your code runs in the DOM: */
+    "preserveWatchOutput": true,
+
+    "jsx": "react-jsx",
+    "allowImportingTsExtensions": true,
+    "exactOptionalPropertyTypes": true,
+    "verbatimModuleSyntax": true,
+    "isolatedDeclarations": true,
+
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist", "dist-tsc"]
+}

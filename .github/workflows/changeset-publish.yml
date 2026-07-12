@@ -1,0 +1,57 @@
+name: Release
+on:
+  push:
+    branches:
+      - main
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+permissions:
+  contents: write
+  pull-requests: write
+  id-token: write
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Setting up Node LTS
+        uses: actions/setup-node@v6
+        with:
+          node-version: "lts/*"
+          cache: "yarn"
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Ensure npm supports trusted publishing
+        run: npm install -g npm@^11.5.1
+
+      - name: Installing dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Build
+        run: yarn build
+
+      - name: Test
+        run: yarn test
+
+      - name: Create Release Pull Request or Publish
+        id: changesets
+        uses: changesets/action@v1
+        with:
+          publish: yarn publish
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Export Error Logs as an Artifact
+        uses: actions/upload-artifact@v6
+        if: always()
+        with:
+          name: NPM error-logs
+          path: /home/runner/.npm/_logs/

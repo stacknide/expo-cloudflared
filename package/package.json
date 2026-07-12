@@ -1,0 +1,54 @@
+{
+  "name": "@stacknide/expo-cloudflared",
+  "version": "0.0.0",
+  "description": "Cloudflare Tunnel for Expo — a drop-in replacement for `@expo/ngrok`. Powers `expo start --tunnel` using Cloudflare Tunnel instead of ngrok.",
+  "source": "src/index.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev:tsc": "tsc -w -p tsc.tsconfig.json",
+    "dev": "NODE_ENV=development tsup",
+    "build": "tsup",
+    "lint:tsc": "tsc --noEmit",
+    "lint:biome": "biome check ./src",
+    "lint": "yarn lint:tsc && yarn lint:biome",
+    "format": "biome check --write ./src"
+  },
+  "author": "Ashutosh Khanduala <https://github.com/ashuvssut>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stacknide/expo-cloudflared.git",
+    "directory": "package"
+  },
+  "bugs": {
+    "url": "https://github.com/stacknide/expo-cloudflared/issues"
+  },
+  "homepage": "https://github.com/stacknide/expo-cloudflared/tree/main/package#readme",
+  "keywords": [],
+  "devDependencies": {
+    "@biomejs/biome": "2.4.4",
+    "lefthook": "^2.1.1",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3"
+  }
+}
