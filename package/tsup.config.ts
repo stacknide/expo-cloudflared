@@ -21,4 +21,19 @@ export default defineConfig([
 		target: 'node18',
 		watch: isDev,
 	},
+	{
+		// CLI entry — CJS only, no dts. `clean: false` so it doesn't wipe the
+		// main config's output; esbuild preserves the source hashbang.
+		clean: false,
+		dts: false,
+		entry: {
+			cli: 'src/cli.ts',
+		},
+		format: ['cjs'],
+		minify: false,
+		platform: 'node',
+		sourcemap: isDev,
+		target: 'node18',
+		watch: isDev,
+	},
 ])
