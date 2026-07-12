@@ -25,6 +25,35 @@ In the output, you'll find options to open the app in a
 
 You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
 
+## Try the Cloudflare Tunnel (expo-cloudflared)
+
+This app is wired to the local build of the `expo-cloudflared` package (via
+`"@expo/ngrok": "portal:../../package"` in [package.json](./package.json)), so
+`expo start --tunnel` uses Cloudflare Tunnel instead of ngrok — no ngrok
+account needed.
+
+From the **repo root** (not this directory):
+
+```bash
+yarn demo:tunnel        # builds the package, then runs `expo start --tunnel` here
+yarn demo:tunnel:dev    # watch-builds the package + runs expo start concurrently
+```
+
+Expo prints `Tunnel ready.` and a QR code, plus a
+`[expo-cloudflared] Tunnel URL: https://*.trycloudflare.com` line. Open that
+QR in Expo Go or a dev client to load the app over the tunnel.
+
+> After editing `package/src`, restart `expo start` — Expo CLI caches the
+> resolved tunnel module per process, so a rebuild alone won't be picked up
+> mid-session unless you use `demo:tunnel:dev`.
+
+For a stable URL instead of a random `trycloudflare.com` one, run
+`npx expo-cloudflared setup` once, then copy [.env.local.example](./.env.local.example)
+to `.env.local` and fill in the two env vars it prints.
+
+See [`test/README.md`](../README.md) for the full manual e2e checklist
+(named tunnels, crash recovery, CLI commands, etc.).
+
 ## Get a fresh project
 
 When you're ready, run:

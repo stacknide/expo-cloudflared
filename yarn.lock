@@ -1715,6 +1715,14 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@expo/ngrok@portal:../../package::locator=demo-app%40workspace%3Atest%2Fdemo-app":
+  version: 0.0.0-use.local
+  resolution: "@expo/ngrok@portal:../../package::locator=demo-app%40workspace%3Atest%2Fdemo-app"
+  bin:
+    expo-cloudflared: ./dist/cli.js
+  languageName: node
+  linkType: soft
+
 "@expo/osascript@npm:^2.7.0":
   version: 2.7.0
   resolution: "@expo/osascript@npm:2.7.0"
@@ -3930,6 +3938,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "demo-app@workspace:test/demo-app"
   dependencies:
+    "@expo/ngrok": "portal:../../package"
     "@expo/ui": "npm:~57.0.4"
     "@types/react": "npm:~19.2.2"
     expo: "npm:~57.0.4"
@@ -4314,6 +4323,8 @@ __metadata:
     lefthook: "npm:^2.1.1"
     tsup: "npm:^8.5.1"
     typescript: "npm:^5.9.3"
+  bin:
+    expo-cloudflared: ./dist/cli.js
   languageName: unknown
   linkType: soft
 

@@ -3,6 +3,7 @@
   "main": "expo-router/entry",
   "version": "1.0.0",
   "dependencies": {
+    "@expo/ngrok": "portal:../../package",
     "@expo/ui": "~57.0.4",
     "expo": "~57.0.4",
     "expo-constants": "~57.0.3",

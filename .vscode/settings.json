@@ -1,4 +1,7 @@
 {
+  "[dotenv]": {
+    "editor.defaultFormatter": "lumirelle.shell-format-rev"
+  },
   "[github-actions-workflow]": {
     "editor.defaultFormatter": "redhat.vscode-yaml"
   },
