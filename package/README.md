@@ -120,6 +120,7 @@ your dev server at `https://dev.yourdomain.com`, with **zero code changes**.
 | `CLOUDFLARED_TUNNEL_TOKEN` | Run a dashboard-managed tunnel by token (**token mode**). Ingress is fixed in the Cloudflare dashboard — prefer name mode for Expo, where the port can change. |
 | `CLOUDFLARED_VERSION` | Pin the cloudflared binary release to download. Pinned versions are cached side by side, so projects pinning different versions never conflict. |
 | `CLOUDFLARED_BIN` | Use an existing cloudflared binary at this path instead of downloading. |
+| `CLOUDFLARED_METRICS_URL` | Override the cloudflared metrics server URL used by `getApi()`. |
 
 Precedence: explicit `connect()` options → `CLOUDFLARED_TUNNEL_NAME` → `CLOUDFLARED_TUNNEL_TOKEN` → quick tunnel.
 
@@ -172,6 +173,7 @@ npx expo-cloudflared <command>
 
 Commands:
   install                  Download the cloudflared binary (happens lazily on first tunnel otherwise)
+  install --force          Re-download even if already installed
   version                  Print the installed cloudflared version
   setup                    Guided named-tunnel setup (login → create → route DNS → env vars)
   tunnel [port]            Start a quick tunnel on [port] (default: 3000)
