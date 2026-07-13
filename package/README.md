@@ -1,14 +1,13 @@
 # expo-cloudflared
 
-[![npm](https://img.shields.io/npm/v/expo-cloudflared.svg)](https://www.npmjs.com/package/expo-cloudflared)
-![TypeScript](https://img.shields.io/badge/typescript-first-brightgreen.svg)
+[![npm](https://img.shields.io/npm/v/expo-cloudflared.svg)](https://www.npmjs.com/package/expo-cloudflared) ![TypeScript](https://img.shields.io/badge/typescript-first-blue.svg)
 
 Cloudflare Tunnel for Expo — a drop-in replacement for `@expo/ngrok`.
 Powers `expo start --tunnel` using [Cloudflare Tunnel](https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/) instead of ngrok.
 
-- **No ngrok account, no authtoken, no rate limits** — quick tunnels are free with no sign-up.
-- **No postinstall delay** — the cloudflared binary downloads lazily on the first tunnel start, so `yarn install` stays fast.
+- **Faster than ngrok** — ngrok caps you around 1 MB/s, while Cloudflare Tunnel isn't rate-limited; on my connection it used my full 5 MB/s of bandwidth.
 - **Stable URLs (named tunnels)** — opt in with two env vars in `.env.local` if you own a domain on Cloudflare.
+- **No ngrok account, no authtoken, no rate limits** — quick tunnels are free with no sign-up.
 
 ---
 
