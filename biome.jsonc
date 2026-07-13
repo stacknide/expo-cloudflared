@@ -71,6 +71,7 @@
 				}
 			},
 			"correctness": {
+				"noUndeclaredVariables": "error",
 				"noUnusedImports": {
 					"fix": "safe",
 					"level": "error"
