@@ -4,13 +4,15 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 
 import { AnimatedIcon } from '@/components/animated-icon'
 import { HintRow } from '@/components/hint-row'
-import { SecureContextWebview } from '@/components/secure-context-webview'
+import { SecureContextWebview } from '@/components/secure-context-dom-loader'
 import { ThemedText } from '@/components/themed-text'
 import { ThemedView } from '@/components/themed-view'
 import { WebBadge } from '@/components/web-badge'
 import { BottomTabInset, MaxContentWidth, Spacing } from '@/constants/theme'
+import { useWelcomeLog } from '@/hooks/use-welcome-log'
 
 export default function HomeScreen() {
+	useWelcomeLog()
 	return (
 		<ThemedView style={styles.container}>
 			<SafeAreaView style={styles.safeArea}>
