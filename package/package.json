@@ -1,6 +1,6 @@
 {
   "name": "expo-cloudflared",
-  "version": "4.2.0",
+  "version": "4.2.1",
   "description": "Cloudflare Tunnel for Expo — a drop-in replacement for `@expo/ngrok`. Powers `expo start --tunnel` using Cloudflare Tunnel instead of ngrok.",
   "source": "src/index.ts",
   "main": "dist/index.js",
