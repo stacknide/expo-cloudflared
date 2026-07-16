@@ -67,6 +67,16 @@
     "tunneling",
     "expo-start-tunnel"
   ],
+  "githubUrl": "https://github.com/stacknide/expo-cloudflared/tree/main/package",
+  "npmPkg": "expo-cloudflared",
+  "examples": [
+    "https://github.com/stacknide/expo-cloudflared/tree/main/test/demo-app"
+  ],
+  "newArchitecture": true,
+  "ios": true,
+  "android": true,
+  "web": true,
+  "expoGo": true,
   "engines": {
     "node": ">=18.17.0"
   },
