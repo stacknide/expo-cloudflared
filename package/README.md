@@ -14,77 +14,58 @@ Powers `expo start --tunnel` using [Cloudflare Tunnel](https://developers.cloudf
 ## How it works
 
 Expo CLI's `--tunnel` flag looks for `@expo/ngrok` in your project's `node_modules`.
-`expo-cloudflared` uses your package manager's **override / alias** feature to install
-itself *at the path* `node_modules/@expo/ngrok`. Expo CLI finds it there, calls
+You install `expo-cloudflared` **at that path** by declaring `@expo/ngrok` as an
+*alias dependency* that points at this package. Expo CLI finds it there, calls
 `connect()` and `kill()` — which this package implements with the same API shape —
 and gets a Cloudflare Tunnel URL back. Expo CLI never knows it isn't ngrok.
 
-You do **not** need to install `@expo/ngrok` at all. If it's installed globally, the
-local override takes priority.
+You do **not** need the real `@expo/ngrok` package — the alias takes its place. If
+`@expo/ngrok` is installed globally, the local alias still wins.
 
 ---
 
 ## Setup for `expo start --tunnel`
 
-Pick your package manager:
-
-### npm / bun
+Add **one** alias dependency: `@expo/ngrok` pointing at `expo-cloudflared`. That's the
+entire install, and it's identical on npm, yarn (v1 classic and Berry), pnpm, and bun:
 
 ```json
 {
   "dependencies": {
-    "expo-cloudflared": "^4.2.0"
-  },
-  "overrides": {
-    "@expo/ngrok": "npm:expo-cloudflared@^4.2.0"
+    "@expo/ngrok": "npm:expo-cloudflared@^4.2.1"
   }
 }
 ```
 
+Then install and start:
+
 ```bash
-npm install        # or: bun install
+npm install        # or: yarn / pnpm install / bun install
 npx expo start --tunnel
 ```
 
-### yarn (v1 classic and v2+)
-
-```json
-{
-  "dependencies": {
-    "expo-cloudflared": "^4.2.0"
-  },
-  "resolutions": {
-    "@expo/ngrok": "npm:expo-cloudflared@^4.2.0"
-  }
-}
-```
-
-```bash
-yarn install
-yarn expo start --tunnel
-```
-
-### pnpm
-
-```json
-{
-  "dependencies": {
-    "expo-cloudflared": "^4.2.0"
-  },
-  "pnpm": {
-    "overrides": {
-      "@expo/ngrok": "npm:expo-cloudflared@^4.2.0"
-    }
-  }
-}
-```
-
-```bash
-pnpm install
-pnpm expo start --tunnel
-```
-
 That's it — `expo start --tunnel` now prints an `https://xxxx.trycloudflare.com` URL.
+
+> **Why an alias dependency and not `overrides` / `resolutions`?**
+> Those fields only *rewrite an existing* dependency on `@expo/ngrok`. A normal Expo
+> app doesn't depend on `@expo/ngrok` (Expo fetches it on demand at runtime), so there
+> is no edge to rewrite — `node_modules/@expo/ngrok` never gets created and Expo falls
+> back to real ngrok. Declaring the alias as a **direct dependency** is what guarantees
+> the path exists right after `install`.
+
+### Monorepos / workspaces
+
+Put the alias in the **workspace package you run `expo start` from** (e.g.
+`apps/mobile/package.json`) — not only the repo root. Two footguns specific to yarn
+Berry workspaces:
+
+- `resolutions` is honored **only at the workspace root**; a `resolutions` block in a
+  child workspace's `package.json` is silently ignored.
+- Even at the root, `resolutions` alone won't create `node_modules/@expo/ngrok` (see
+  the note above), so it can't fix this on its own.
+
+The alias-**dependency** approach sidesteps both — it works the same in a monorepo as
+in a single-package app.
 
 ---
 
